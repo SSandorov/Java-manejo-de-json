@@ -1,30 +1,30 @@
 package com.mycompany.app.nested;
 
-import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class ConfigLoader {
-
-    public static AppConfig loadConfig(String filePath) {
+public class ConfigSaver {
+    public static void saveConfig(AppConfig config, String filePath) {
         //* GsonBuilder permite configuran el JSON antes de crearlo, y el setPrettyPrinting
         //* anade los saltos de linea y las tabulaciones
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        try(FileReader reader = new FileReader(filePath)) {
-            return gson.fromJson(reader, AppConfig.class);
+        try(FileWriter writer = new FileWriter(filePath)) {
+            gson.toJson(config, writer);
+            System.out.println("Configuracion guardada");
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        return null;
     }
     public static void main(String[] args) {
-        AppConfig config = loadConfig("config.json");
+        AppConfig config = ConfigLoader.loadConfig("config.json");
 
         if (config != null) {
-            System.out.println("App: " + config);
+            config.getSettings().setTheme("light");
+            saveConfig(config, "config.json");
         }
     }
 }

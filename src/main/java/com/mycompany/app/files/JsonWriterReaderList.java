@@ -5,15 +5,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.mycompany.app.Person;
 
 public class JsonWriterReaderList {
     public static void main(String[] args) {
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         List<Person> people = new ArrayList<>();
 
@@ -35,7 +37,8 @@ public class JsonWriterReaderList {
             System.out.println("-------------");
         }
 
-        people.add(new Person("Fernando", 35, false));
+        people.add(new Person("Pedro", 35, false, Arrays.asList("Correr", "Nadar", "Estudiar")));
+        people.add(new Person("Gabriel", 35, false, Arrays.asList("Futbol", "Leer", "Estudiar")));
 
         try(FileWriter write = new FileWriter("person.json")) {
             gson.toJson(people, write);

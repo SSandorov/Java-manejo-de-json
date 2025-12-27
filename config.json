@@ -2,7 +2,7 @@
   "appName": "Task Manager",
   "version": "1.0.0",
   "settings": {
-    "theme": "dark",
+    "theme": "light",
     "notifications": true,
     "language": "es"
   }

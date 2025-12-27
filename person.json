@@ -1,6 +1,16 @@
 [
-  { "name": "Juan", "age": 25, "student": true },
-  { "name": "Maria", "age": 30, "student": false },
-  { "name": "Carlos", "age": 40, "student": true },
-  { "name": "Fernando", "age": 35, "student": false }
+  {
+    "name": "Pedro",
+    "age": 35,
+    "student": false,
+    "email": "pedro@example.com",
+    "hobbies": ["Correr", "Nadar", "Estudiar"]
+  },
+  {
+    "name": "Gabriel",
+    "age": 35,
+    "student": false,
+    "email": "gabriel@example.com",
+    "hobbies": ["Futbol", "Leer", "Estudiar"]
+  }
 ]
